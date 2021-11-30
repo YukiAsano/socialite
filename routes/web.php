@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('login/laravelpassport', 'Auth\LoginController@redirectToProvider');
+// Route::get('login/laravelpassport/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::get('login/laravelpassport', [App\Http\Controllers\Auth\LoginController::class, 'redirectToProvider']);
+Route::get('login/laravelpassport/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback']);
+
 Route::get('/', function () {
     return view('welcome');
 });
